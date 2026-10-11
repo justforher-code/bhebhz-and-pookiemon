@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#0b0b0b" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="description" content="A little film for Bhebhz &amp; Pookiemon." />
+    <title>Bhebhz &amp; Pookiemon</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9D%A4%EF%B8%8F%3C/text%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <noscript><p class="noscript">This page needs JavaScript to play. Please turn it on and refresh.</p></noscript>
+
+    <!-- top buttons -->
+    <button class="sm" id="soundBtn" type="button">&#128266; Sound</button>
+    <button class="sm" id="moodBtn" type="button">&#9834; Mood</button>
+    <button class="sm" id="replayBtn" type="button">&#8635; Replay</button>
+    <button class="sm" id="themeBtn" type="button" aria-label="Switch to light theme">&#9728;</button>
+    <div id="moodPop"><div class="chips" id="moodPopRow"></div></div>
+
+    <div id="world">
+      <!-- PAGE 1: intro -->
+      <section class="page" id="intro" aria-label="Intro">
+        <div class="line"></div>
+        <h1 class="mark">Bhebhz &amp; Pookiemon</h1>
+        <div class="sub">a love story, still being filmed</div>
+      </section>
+
+      <!-- PAGE 2: chapters -->
+      <section class="page out-r" id="browse" aria-label="Our chapters" inert>
+        <div class="bgwall" id="wallChapters" aria-hidden="true"></div>
+        <div class="wallshade" aria-hidden="true"></div>
+        <div class="top">Bhebhz &amp; Pookiemon</div>
+        <div class="searchbox">
+        <div class="search">
+          <input id="q" type="search" placeholder="Search our chapters&hellip;" autocomplete="off" enterkeyhint="search" aria-label="Search chapters" />
+          <button id="qClear" type="button" aria-label="Clear search" hidden>&#10005;</button>
+        </div>
+        <p id="noMatch" hidden>Nothing here yet. We still have to make that memory.</p>
+        </div>
+        <div class="stage">
+        <h2 class="hd">Our chapters</h2>
+        <div class="row">
+          <div class="cw" data-keys="park the park our second home second home st george stalker stalking walk walking clip video selfie bench path">
+            <button class="card hero" id="openPark" type="button" aria-label="The Park: Our Second Home"><span class="pl">&#9654;</span><b>The Park:<br />Our Second Home</b><i class="pg"></i></button>
+          </div>
+          <div class="cw" data-keys="flowers flower roses rose sunflowers sunflower bouquet gift">
+            <button class="card lock fl" type="button" aria-label="Flowers, not available yet" data-msg="Bhebhz hasn&rsquo;t bought Pookiemon enough flowers to unlock this chapter."><b>Flowers</b></button>
+          </div>
+          <div class="cw" data-keys="dates date cafe caf&eacute; coffee unplanned plate book dinner">
+            <button class="card lock" type="button" aria-label="Dates, not available yet" data-msg="We still have to go on more dates to unlock this chapter."><b>Dates</b></button>
+          </div>
+        </div>
+        <h2 class="hd mh">Pick your mood &#9834;</h2>
+        <div class="chips" id="moodRow"></div>
+        </div>
+        <h2 class="hd mh">Memories</h2>
+        <div id="memRow"></div>
+        <p class="foot">Bhebhz &amp; Pookiemon &middot; made for the park</p>
+        <button class="btn ghost totop" id="toTop" type="button">&#8593; Back to top</button>
+      </section>
+
+      <!-- PAGE 3: chapter title page -->
+      <section class="page out-r" id="detail" aria-label="The Park: Our Second Home" inert>
+        <div class="hero-banner"></div>
+        <div class="dt">
+          <div class="meta">100% match &middot; Chapter 1 &middot; 0:15</div>
+          <h2>The Park:<br />Our Second Home</h2>
+          <p>Where it started, and where we keep coming back.</p>
+          <button class="btn" id="playBtn" type="button">&#9654; Play</button>
+          <button class="btn ghost" id="backBtn" type="button">&lsaquo; Back</button>
+        </div>
+      </section>
+    </div>
+
+    <!-- tap to begin (also unlocks sound on phones) -->
+    <button id="gate" type="button">
+      <span class="gt">Bhebhz &amp; Pookiemon</span>
+      <span class="gs">Tap to begin</span>
+    </button>
+
+    <!-- video -->
+    <div id="player">
+      <button id="closeVideoBtn" type="button" aria-label="Close video">&#10005;</button>
+      <video id="video" controls preload="metadata" poster="assets/images/cover-park-selfie.jpg" src="assets/video/episode1.mp4">
+        Your browser can&rsquo;t play this video.
+      </video>
+    </div>
+
+    <!-- photo slideshow -->
+    <div id="show">
+      <div class="bgwall" id="showWall" aria-hidden="true"></div>
+      <div class="vf" aria-hidden="true"><i></i><i></i><i></i><i></i><b>REC</b><u id="tc">00:00:00:00</u></div>
+      <div id="progress"></div>
+      <div id="counter"></div>
+      <div class="nav">
+        <button id="prevBtn" type="button" aria-label="Previous">&#8249;</button>
+        <button id="closeShowBtn" type="button" aria-label="Close">&#10005;</button>
+      </div>
+    </div>
+
+    <!-- memory viewer -->
+    <div id="lb" hidden>
+      <button id="lbClose" type="button" aria-label="Close photo">&#10005;</button>
+      <button id="lbPrev" type="button" aria-label="Previous photo">&#8249;</button>
+      <button id="lbNext" type="button" aria-label="Next photo">&#8250;</button>
+      <div class="fr34"><img class="fill" alt="" /><img class="pic" alt="" /></div>
+    </div>
+
+    <!-- locked-chapter message -->
+    <div id="msg" role="status">
+      <h3>Invalid</h3>
+      <p></p>
+      <small>tap to close</small>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
